@@ -1,0 +1,5 @@
+- a: "export var=a"
+  b: "export var=b"
+  c: "export var=c"
+- "echo Hello World"
+- e: "echo $var"

@@ -1,0 +1,4 @@
+Fullscreen: "shutter -f"
+Window: "shutter -w"
+Menu: "shutter -m"
+Redo: "shutter -r"
