@@ -1,6 +1,6 @@
 # Rofi Menu
 
-Permet de lancer rofi avec les entrées renseignées dans fichier YAML.
+Permet de lancer rofi avec les entrées renseignées dans un fichier YAML.
 
 ## Utilisation en python3
 
@@ -61,8 +61,15 @@ affichés/exécutées de manière séquentielle.
 - e: "echo $var"
 ```
 
-## TODO
-- [X] Utilisation avec python3
-- [X] Utilisation avec YAML
-- [X] Liste de commandes/menu dans les actions
-- [ ] Support de jinja2 pour l'usage YAML
+## Utilisation de jinja2
+Le yaml interprété par le programme peut être généré à l'aide de jinja2:
+```yaml
+{% set MAX = 6500 %}
+{% set MIN = 2500 %}
+{% set STEP = 20 %}
+
+{% for i in range(0, 101, STEP) %}
+  {% set value = MIN+(MAX-MIN)*i/100 %}
+"{{i}}%": "redshift -P -O {{value}}"
+{% endfor %}
+```

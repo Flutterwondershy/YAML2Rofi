@@ -1,0 +1,8 @@
+{% set MAX = 6500 %}
+{% set MIN = 2500 %}
+{% set STEP = 20 %}
+
+{% for i in range(0, 101, STEP) %}
+  {% set value = MIN+(MAX-MIN)*i/100 %}
+"{{i}}%": "redshift -P -O {{value}}"
+{% endfor %}

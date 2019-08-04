@@ -1,7 +1,6 @@
 import os
 from typing import Union
 
-
 class RofiMenu:
     """Represent a rofi menu"""
 

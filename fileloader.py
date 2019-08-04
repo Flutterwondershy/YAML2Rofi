@@ -1,4 +1,6 @@
 import yaml
+from jinja2 import Environment
+
 from rofimenu import RofiMenu
 
 
@@ -9,6 +11,7 @@ class FileLoader:
         loaded_menu = None
         with open(file, 'r') as stream:
             try:
+                stream = Environment().from_string(stream.read()).render()
                 loaded_menu = RofiMenu(yaml.safe_load(stream))
             except yaml.YAMLError as exc:
                 print(exc)
